@@ -1,0 +1,10 @@
+<!--This is to keep an easily maintainable and configurable platform selection across projects
+ This will be copied in during build time to ensure that everything works and uses the
+ liberty version-less features working and less maintenance in the future -->
+
+<server>
+    <featureManager>
+        <platform>microProfile-6.1</platform>
+        <platform>jakartaee-10.0</platform>
+    </featureManager>
+</server>

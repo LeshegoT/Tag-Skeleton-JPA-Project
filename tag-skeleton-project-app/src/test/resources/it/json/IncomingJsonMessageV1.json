@@ -1,0 +1,6 @@
+{
+  "reference": "${reference}",
+  "name": "${name}",
+  "date": "${date}",
+  "random": ${random}
+}

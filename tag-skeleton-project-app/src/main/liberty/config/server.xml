@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server description="${project.name}">
+
+    <featureManager>
+        <feature>mpTelemetry</feature>
+        <feature>enterpriseBeansLite</feature>
+        <feature>messaging</feature>
+        <feature>mdb</feature>
+        <feature>beanValidation</feature>
+        <feature>jsonb</feature>
+        <feature>appSecurity</feature>
+        <feature>persistenceContainer</feature>
+        <feature>mpOpenAPI</feature>
+        <feature>mpjwt</feature>
+    </featureManager>
+
+    <include optional="false" location="infrastructureConfig.xml"/>
+    <include optional="false" location="platforms.xml"/>
+
+    <httpEndpoint
+            id="defaultHttpEndpoint"
+            httpPort="${APP_PORT}"
+            host="*"
+            httpsPort="${APP_PORT_SECURE}">
+    </httpEndpoint>
+
+    <webApplication
+            location="${project.name}.war"
+            contextRoot="/">
+        <classloader apiTypeVisibility="api,ibm-api,spec,stable,third-party"/>
+    </webApplication>
+
+    <resourceAdapter
+            id="jms-resource-adapter-tag-active-mq-broker"
+            location="${server.config.dir}/lib/activemq-rar-${activemq.version}.rar">
+
+        <properties.jms-resource-adapter-tag-active-mq-broker
+                ServerUrl="${BROKER_URL}"
+                UserName="${BROKER_USER}"
+                Password="${BROKER_PASSWORD}"/>
+    </resourceAdapter>
+
+    <connectionManager
+            id="tagJmsConnectionManager"
+            maxPoolSize="30"
+            minPoolSize="4"/>
+
+    <jmsQueueConnectionFactory
+            jndiName="jms/connectionFactory/tag-active-mq-broker"
+            connectionManagerRef="tagJmsConnectionManager">
+
+        <properties.jms-resource-adapter-tag-active-mq-broker/>
+    </jmsQueueConnectionFactory>
+
+    <include optional="false" location="jmsQueueConfig.xml"/>
+
+    <connectionManager id="tagDataSourceConnectionManager"
+                       maxPoolSize="10"
+                       minPoolSize="2"
+                       maxIdleTime="1m"
+                       purgePolicy="ValidateAllConnections"/>
+    <dataSource id="DefaultDataSource"
+                jndiName="jdbc/postgres"
+                type="javax.sql.XADataSource"
+                connectionManagerRef="tagDataSourceConnectionManager"
+                transactional="true">
+        <jdbcDriver libraryRef="PostgresLib"/>
+        <properties.postgresql databaseName="${DB_NAME}"
+                               serverName="${DB_HOST}"
+                               portNumber="${DB_PORT}"
+                               user="${DB_USER}"
+                               password="${DB_PASSWORD}"
+                               currentSchema="${defaultSchema}"
+                               applicationName="${project.name}"/>
+    </dataSource>
+
+    <library id="PostgresLib">
+        <file name="${server.config.dir}/lib/postgresql-jar-${postgres.version}.jar"/>
+    </library>
+</server>

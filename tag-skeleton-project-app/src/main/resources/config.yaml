@@ -1,0 +1,28 @@
+endpoints:
+  - name: tag-active-mq-broker
+    type: ACTIVE_MQ
+
+    defaultDestination:
+      poison: TAG.POISON
+
+    commands:
+      - messageType: za.co.sbg.tag.skeleton.messages.commands.IncomingJsonMessageV1
+        messageEncoding: TEXT
+        contentType: application/json
+
+      - messageType: za.co.sbg.tag.skeleton.messages.commands.IncomingFixedLengthDelimitedMessageV1
+        messageEncoding: TEXT
+        contentType: application/text
+
+    events:
+      - messageType: za.co.sbg.tag.skeleton.messages.events.OutgoingXmlMessageV1
+        handled: false
+        messageEncoding: TEXT
+        contentType: application/xml
+
+      - messageType: za.co.sbg.tag.skeleton.messages.events.OutgoingTextMessageV1
+        handled: false
+        messageEncoding: TEXT
+        contentType: application/text
+      - messageType: za.co.sbg.tag.alerts.async.AlertRaised
+        handled: false

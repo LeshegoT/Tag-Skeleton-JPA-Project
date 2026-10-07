@@ -1,0 +1,32 @@
+﻿# Compiled output
+target/
+*.class
+out/
+bin/
+
+# Packages
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Secrets / local config
+.env
+application-local.properties
+
+# Keep Maven wrapper if you have one
+!.mvn/wrapper/maven-wrapper.jar

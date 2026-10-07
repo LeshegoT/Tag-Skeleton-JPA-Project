@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--We are currently using jakarta 10
+See here: https://openliberty.io/docs/latest/reference/feature/cdi-4.0.html#_platform_versions
+If we change then we probably want to change the below the the support versions too
+https://jakarta.ee/xml/ns/jakartaee/#10-->
+<ejb-jar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/ejb-jar_4_0.xsd"
+         version="4.0">
+    <enterprise-beans>
+        <message-driven>
+            <ejb-name>JmsMessageConsumerCommandZaCoSbgTagSkeletonMessagesCommandsIncomingjsonmessagev1</ejb-name>
+            <ejb-class>za.co.sbg.tag.messaging.jms.consumer.JmsMessageConsumer</ejb-class>
+            <transaction-type>Container</transaction-type>
+            <message-destination-type>jakarta.jms.Queue</message-destination-type>
+        </message-driven>
+        <message-driven>
+            <ejb-name>JmsMessageConsumerCommandZaCoSbgTagSkeletonMessagesCommandsIncomingfixedlengthdelimitedmessagev1</ejb-name>
+            <ejb-class>za.co.sbg.tag.messaging.jms.consumer.JmsMessageConsumer</ejb-class>
+            <transaction-type>Container</transaction-type>
+            <message-destination-type>jakarta.jms.Queue</message-destination-type>
+        </message-driven>
+
+	
+    </enterprise-beans>
+</ejb-jar>
+

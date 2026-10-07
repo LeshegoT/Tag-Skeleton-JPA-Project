@@ -1,0 +1,38 @@
+<server>
+    <jmsQueue id="command.za.co.sbg.tag.skeleton.messages.commands.IncomingJsonMessageV1" jndiName="jms/command.za.co.sbg.tag.skeleton.messages.commands.IncomingJsonMessageV1">
+        <properties.jms-resource-adapter-tag-active-mq-broker
+                physicalName="command.za.co.sbg.tag.skeleton.messages.commands.IncomingJsonMessageV1"/>
+    </jmsQueue>
+
+    <jmsActivationSpec
+            id="tag-skeleton-project-app/JmsMessageConsumerCommandZaCoSbgTagSkeletonMessagesCommandsIncomingjsonmessagev1">
+        <properties.jms-resource-adapter-tag-active-mq-broker
+                destination="command.za.co.sbg.tag.skeleton.messages.commands.IncomingJsonMessageV1"
+                destinationType="jakarta.jms.Queue"
+                initialRedeliveryDelay="50"
+                maximumRedeliveryDelay="30000"
+                maximumRedeliveries="15"
+                backOffMultiplier="2"
+                useExponentialBackOff="true"
+                maxSessions="10"/>
+    </jmsActivationSpec>
+
+    <jmsQueue id="command.za.co.sbg.tag.skeleton.messages.commands.IncomingFixedLengthDelimitedMessageV1" jndiName="jms/command.za.co.sbg.tag.skeleton.messages.commands.IncomingFixedLengthDelimitedMessageV1">
+        <properties.jms-resource-adapter-tag-active-mq-broker
+                physicalName="command.za.co.sbg.tag.skeleton.messages.commands.IncomingFixedLengthDelimitedMessageV1"/>
+    </jmsQueue>
+
+    <jmsActivationSpec
+            id="tag-skeleton-project-app/JmsMessageConsumerCommandZaCoSbgTagSkeletonMessagesCommandsIncomingfixedlengthdelimitedmessagev1">
+        <properties.jms-resource-adapter-tag-active-mq-broker
+                destination="command.za.co.sbg.tag.skeleton.messages.commands.IncomingFixedLengthDelimitedMessageV1"
+                destinationType="jakarta.jms.Queue"
+                initialRedeliveryDelay="50"
+                maximumRedeliveryDelay="30000"
+                maximumRedeliveries="15"
+                backOffMultiplier="2"
+                useExponentialBackOff="true"
+                maxSessions="10"/>
+    </jmsActivationSpec>
+
+</server>

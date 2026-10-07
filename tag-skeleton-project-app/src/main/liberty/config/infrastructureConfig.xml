@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server>
+
+    <variable name="APP_PORT"
+              defaultValue="8090"/>
+
+    <variable name="APP_PORT_SECURE"
+              defaultValue="18090"/>
+
+
+    <!-- PostgreSQL -->
+
+    <variable name="DB_NAME"
+              defaultValue="PACManDB"/>
+
+    <variable name="DB_HOST"
+              defaultValue="localhost"/>
+
+    <variable name="DB_PORT"
+              defaultValue="5432"/>
+
+    <variable name="DB_USER"
+              defaultValue="postgres"/>
+
+    <variable name="DB_PASSWORD"
+              defaultValue="admin"/>
+
+    <variable name="defaultSchema"
+              defaultValue="skeleton"/>
+
+
+    <!-- ActiveMQ -->
+
+    <variable name="BROKER_URL"
+              defaultValue="tcp://localhost:61616"/>
+
+    <variable name="BROKER_USER"
+              defaultValue="admin"/>
+
+    <variable name="BROKER_PASSWORD"
+              defaultValue="admin"/>
+
+</server>

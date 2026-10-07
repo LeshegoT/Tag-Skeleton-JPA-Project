@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OutgoingXmlMessageV1>
+  <reference>${reference}</reference>
+  <name>${name}</name>
+  <date>${expectedDate}</date>
+  <randomAlphaNumeric>@matches('${random}-[a-f0-9]{8}')@</randomAlphaNumeric>
+</OutgoingXmlMessageV1>

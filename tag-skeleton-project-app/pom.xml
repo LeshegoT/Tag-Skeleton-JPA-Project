@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>za.co.sbg.tag</groupId>
+        <artifactId>tag-app-starter</artifactId>
+        <version>12.0.0-SNAPSHOT</version>
+        <relativePath/>
+    </parent>
+
+    <artifactId>tag-skeleton-project-app</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <!-- TAG Messages -->
+        <tag.skeleton.project.messages.version>1.0.0-SNAPSHOT</tag.skeleton.project.messages.version>
+        <beanio.version>2.1.0</beanio.version>
+        <imagename>tag-skeleton-project</imagename>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+        </dependency>
+        <!-- TAG Platform -->
+        <dependency>
+            <groupId>za.co.sbg.tag</groupId>
+            <artifactId>tag-platform-messaging-activemq-jms</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>za.co.sbg.tag</groupId>
+            <artifactId>tag-platform-serialization-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>za.co.sbg.tag</groupId>
+            <artifactId>tag-platform-serialization-xml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>za.co.sbg.tag</groupId>
+            <artifactId>tag-platform-flyway</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>4.0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.microshed</groupId>
+            <artifactId>microshed-testing-liberty</artifactId>
+            <version>${microshed.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>za.co.sbg.tag</groupId>
+            <artifactId>tag-alerts-async</artifactId>
+            <version>11.0.0-SNAPSHOT</version>
+        </dependency>
+        <!-- TAG Messages -->
+        <dependency>
+            <groupId>za.co.sbg.tag</groupId>
+            <artifactId>tag-skeleton-project-messages</artifactId>
+            <version>${tag.skeleton.project.messages.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.beanio</groupId>
+            <artifactId>beanio</artifactId>
+            <version>${beanio.version}</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+
+</project>
